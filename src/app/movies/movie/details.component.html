@@ -1,0 +1,33 @@
+<div class="col-sm-12">
+	
+	<h2 style="margin-bottom:30px;">Monstrando detalles de {{movie.title}}  </h2>  
+	<div class="row">
+			<div class="col-md-4">
+				<img src="{{this._util.posterURL(movie.poster_path)}}" alt="{{movie.title}}" style="width:300px" />
+			</div>	
+	
+			<div class="col-md-8">
+				<h3>Nombre:</h3> {{movie.title}}
+				<h3>Género</h3> 
+				<ul>
+                    <li *ngFor="let genero of movie.genres">
+		                        <a href="/movies/genre/{{genero.id}}" >{{genero.name}}</a>
+		            </li>
+		        </ul>
+				<h3>Sinopsis:</h3> {{movie.overview}}
+                <h3>Reparto:</h3>
+                <ul>
+                    <li *ngFor="let actor of infoReparto.cast"><a href="/movies/actor/{{actor.id}}" >{{actor.name}}</a> como {{actor.character}}</li>
+                </ul>
+                <h3>Equipo:</h3>
+                <ul>
+                    <li *ngFor="let crew of infoReparto.crew">{{crew.name}} ({{crew.job}})</li>
+                </ul>
+                <h3>Idiomas:</h3> 
+                <ul>
+                    <li *ngFor="let idioma of movie.spoken_languages"> {{idioma.name}}</li>
+                </ul>
+			</div>
+	
+	</div>
+</div>
